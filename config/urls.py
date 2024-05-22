@@ -17,6 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+import poll.views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    path('poll/', poll.views.list, name='list'),
+    path('poll/<int:id>/', poll.views.detail, name='detail'),
+    path('poll/<int:id>/agree/', poll.views.agree, name='agree'),
+    path('poll/<int:id>/disagree/', poll.views.disagree, name='disagree'),
 ]
